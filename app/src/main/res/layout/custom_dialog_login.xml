@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_back"
+    android:layoutDirection="ltr"
+    android:paddingBottom="24dp"
+    tools:ignore="ExtraText">
+
+
+    <ImageView
+        android:id="@+id/ic_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/close" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/login_alert_title"
+        android:textColor="@color/color_text_black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ic_cancel" />
+
+    <TextView
+        android:id="@+id/txtShowNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/color_text_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:text="کد به شماره 09035802464 ارسال شد" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/code_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="@+id/txtShowNumber"
+        app:layout_constraintStart_toStartOf="@+id/txtShowNumber"
+        app:layout_constraintTop_toBottomOf="@+id/txtShowNumber">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_code"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/back_edit_text"
+            android:hint="@string/confirm_code"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAlignment="textEnd"
+            android:textColorHint="@color/color_text_gray" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/edt_code_timer"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/txt_timer_back"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/code_input_layout"
+        app:layout_constraintEnd_toEndOf="@+id/code_input_layout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/code_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/txtShowNumber"
+        app:layout_constraintVertical_bias="0.25"
+        tools:text="۳۴:۲۱" />
+
+    <ir.abyx.pastry.ui.customView.CustomButton
+        android:id="@+id/custom_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/code_input_layout"
+        app:layout_constraintStart_toStartOf="@+id/code_input_layout"
+        app:layout_constraintTop_toBottomOf="@+id/code_input_layout"
+        app:text="تایید و ادامه" />
+
+    <TextView
+        android:id="@+id/txt_edit_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/dialog_edit_phone"
+        android:textColor="@color/black_main"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/custom_button"
+        app:layout_constraintTop_toBottomOf="@+id/custom_button" />
+
+    <TextView
+        android:id="@+id/txt_resend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_resend"
+        android:textColor="@color/black_main"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_edit_phone"
+        app:layout_constraintEnd_toStartOf="@+id/txt_edit_phone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/custom_button"
+        app:layout_constraintTop_toTopOf="@+id/txt_edit_phone" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

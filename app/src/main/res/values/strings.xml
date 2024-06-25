@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Pastry</string>
+    <string name="splash_title">شیرینی فرانسوی</string>
+    <string name="splash_logo">splash_logo</string>
+    <string name="login_back">login_back</string>
+    <string name="logo">logo</string>
+    <string name="login_title">ورود به برنامه</string>
+    <string name="login_name">شیرینی فرانسوی</string>
+    <string name="login_desc">جهت ورود به برنامه شماره موبایل خود را در کادر زیر وارد کرده و کدارسالی به موبایل خود را در برنامه وارد کنید.</string>
+    <string name="login_edt_hint">شماره موبایل خود را وارد کنید</string>
+    <string name="login_alert_title">کد تایید</string>
+    <string name="cancel">cancel</string>
+    <string name="confirm_code">کد تایید را وارد کنید</string>
+    <string name="dialog_edit_phone">ویرایش شماره</string>
+    <string name="txt_resend">ارسال مجدد کد</string>
 </resources>
