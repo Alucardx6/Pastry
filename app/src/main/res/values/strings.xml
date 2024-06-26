@@ -9,8 +9,20 @@
     <string name="login_desc">جهت ورود به برنامه شماره موبایل خود را در کادر زیر وارد کرده و کدارسالی به موبایل خود را در برنامه وارد کنید.</string>
     <string name="login_edt_hint">شماره موبایل خود را وارد کنید</string>
     <string name="login_alert_title">کد تایید</string>
+    <string name="login_alert_username">اطلاعات کاربری</string>
     <string name="cancel">cancel</string>
     <string name="confirm_code">کد تایید را وارد کنید</string>
     <string name="dialog_edit_phone">ویرایش شماره</string>
     <string name="txt_resend">ارسال مجدد کد</string>
+    <string name="username">نام و نام‌خانوادگی</string>
+    <string name="please_wait">لطفا صبر کنید</string>
+    <string name="back">back</string>
+    <string name="notification">notification</string>
+    <string name="menu">menu</string>
+    <string name="profile">profile</string>
+    <string name="polygon">polygon</string>
+    <string name="shopping_cart">shopping cart</string>
+    <string name="pastry">pastry</string>
+    <string name="group">group</string>
+    <string name="cake">cake</string>
 </resources>
