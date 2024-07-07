@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".ui.activity.UserActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#141217"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="150dp"
+            android:layout_height="140dp"
+            android:contentDescription="@string/image_desc"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
+            app:srcCompat="@drawable/img_profile_lines" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/white_main"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/custom_app_bar"
+            tools:text="نام کاربری" />
+
+        <TextView
+            android:id="@+id/txt_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white_main"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name"
+            tools:text="09035802464" />
+
+        <ir.abyx.pastry.ui.customView.CustomAppBar
+            android:id="@+id/custom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backIcon="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/view20"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/back_item_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_phone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ir.abyx.pastry.ui.customView.CustomEditText
+                    android:id="@+id/txt_edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginTop="12dp"
+                    app:hintText="نام و نام خانوادگی"
+                    app:rtlSupport="true" />
+
+                <ir.abyx.pastry.ui.customView.CustomEditText
+                    android:id="@+id/txt_Edit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="18dp"
+                    app:hintText="ایمیل" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginTop="18dp"
+                    android:orientation="horizontal">
+
+                    <ir.abyx.pastry.ui.customView.CustomEditText
+                        android:id="@+id/txt_edit_year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.3"
+                        app:centerGravity="true"
+                        app:hintText="سال"
+                        app:max="4"
+                        app:type="2" />
+
+                    <ir.abyx.pastry.ui.customView.CustomEditText
+                        android:id="@+id/txt_edit_month"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="0.2"
+                        app:centerGravity="true"
+                        app:hintText="ماه"
+                        app:max="2"
+                        app:type="2" />
+
+                    <ir.abyx.pastry.ui.customView.CustomEditText
+                        android:id="@+id/txt_edit_day"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        app:centerGravity="true"
+                        app:hintText="روز"
+                        app:max="2"
+                        app:type="2" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="0.3"
+                        android:text="@string/birthdate"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="18dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/rdg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rdbHide"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layoutDirection="rtl"
+                            android:text="@string/hide" />
+
+                        <RadioButton
+                            android:id="@+id/rdbWomen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layoutDirection="rtl"
+                            android:text="@string/woman" />
+
+                        <RadioButton
+                            android:id="@+id/rdbMen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layoutDirection="rtl"
+                            android:text="@string/men" />
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="4dp"
+                        android:text="@string/gender"
+                        android:textColor="@color/color_text_black"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+                <ir.abyx.pastry.ui.customView.CustomButton
+                    android:id="@+id/btn_save_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="18dp"
+                    app:text="@string/save_info" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+</FrameLayout>

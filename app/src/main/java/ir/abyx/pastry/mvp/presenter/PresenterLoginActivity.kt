@@ -11,10 +11,15 @@ class PresenterLoginActivity(
 
     override fun onCreate() {
         login()
+        sendDeviceInfo()
+    }
+
+    private fun sendDeviceInfo() {
+        view.setDeviceInfo(model.getDeviceInfo())
     }
 
     private fun login() {
-        view.onClick()
+        view.onClick(model.getUID(), model.getPublicKey())
     }
 
 }

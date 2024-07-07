@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/back_alert_dialog_gray"
+    android:layoutDirection="ltr"
+    android:padding="12dp">
+
+    <View
+        android:id="@+id/view_normal"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/back_radio_sell_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view_major"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_major"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/back_radio_sell_transparent"
+        app:layout_constraintEnd_toStartOf="@+id/view_normal"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/rb_sell_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:layoutDirection="rtl"
+        android:text="@string/order_option_2"
+        app:layout_constraintBottom_toBottomOf="@+id/view_normal"
+        app:layout_constraintEnd_toEndOf="@+id/view_normal"
+        app:layout_constraintStart_toStartOf="@+id/view_normal"
+        app:layout_constraintTop_toTopOf="@+id/view_normal" />
+
+    <RadioButton
+        android:id="@+id/rb_sell_major"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:text="@string/order_option_1"
+        app:layout_constraintBottom_toBottomOf="@+id/view_major"
+        app:layout_constraintEnd_toEndOf="@+id/view_major"
+        app:layout_constraintStart_toStartOf="@+id/view_major"
+        app:layout_constraintTop_toTopOf="@+id/view_major" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view25"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/back_radio_sell_white"
+        app:layout_constraintEnd_toEndOf="@+id/view_normal"
+        app:layout_constraintStart_toStartOf="@+id/view_major"
+        app:layout_constraintTop_toBottomOf="@+id/view_normal">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/order_option_weight"
+            android:textColor="@color/color_text_black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/view25"
+            app:layout_constraintTop_toTopOf="@+id/view25" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/kg"
+            android:textColor="@color/color_text_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <View
+            android:id="@+id/view_min"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/back_alert_dialog_gray_plus_and_min"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/view25"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/min"
+            android:textColor="@color/color_text_black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_min"
+            app:layout_constraintEnd_toEndOf="@+id/view_min"
+            app:layout_constraintStart_toStartOf="@+id/view_min"
+            app:layout_constraintTop_toTopOf="@+id/view_min" />
+
+        <TextView
+            android:id="@+id/txt_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/one_number"
+            android:textColor="@color/color_text_black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_min"
+            app:layout_constraintStart_toEndOf="@+id/view_min"
+            app:layout_constraintTop_toTopOf="@+id/view_min" />
+
+        <View
+            android:id="@+id/view_plus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/back_alert_dialog_gray_plus_and_min"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_count"
+            app:layout_constraintStart_toEndOf="@+id/txt_count"
+            app:layout_constraintTop_toTopOf="@+id/txt_count" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:textColor="@color/color_text_black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_plus"
+            app:layout_constraintEnd_toEndOf="@+id/view_plus"
+            app:layout_constraintStart_toStartOf="@+id/view_plus"
+            app:layout_constraintTop_toTopOf="@+id/view_plus" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/price_base"
+            android:textColor="@color/color_text_black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/kg"
+            android:textColor="@color/color_text_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintEnd_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="@string/currency"
+            android:textColor="@color/color_text_gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView15"
+            app:layout_constraintStart_toStartOf="@+id/view_min"
+            app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/txt_price_based"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/color_text_black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView16"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="@+id/textView16"
+            tools:text="180,000" />
+
+        <TextView
+            android:id="@+id/txt_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/off"
+            android:textColor="@color/color_text_black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/off_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="txt_off,txt_kg,txt_sell_off,txt_price_off,txt_off_18n"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/txt_kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/kg"
+            android:textColor="@color/color_text_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_off"
+            app:layout_constraintEnd_toStartOf="@+id/txt_off"
+            app:layout_constraintTop_toTopOf="@+id/txt_off" />
+
+        <TextView
+            android:id="@+id/txt_sell_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency"
+            android:textColor="@color/color_text_gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_kg"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="@+id/txt_kg" />
+
+        <TextView
+            android:id="@+id/txt_price_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/red_main"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_sell_off"
+            app:layout_constraintStart_toEndOf="@+id/txt_sell_off"
+            app:layout_constraintTop_toTopOf="@+id/txt_sell_off"
+            tools:text="150,000" />
+
+        <TextView
+            android:id="@+id/txt_off_18n"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/red_main"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_price_off"
+            app:layout_constraintStart_toEndOf="@+id/txt_price_off"
+            app:layout_constraintTop_toTopOf="@+id/txt_price_off"
+            tools:text="(20%)" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/price_total"
+            android:textColor="@color/color_text_black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txt_off"
+            app:layout_constraintTop_toBottomOf="@+id/txt_off" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency"
+            android:textColor="@color/color_text_gray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView23"
+            app:layout_constraintStart_toStartOf="@+id/txt_sell_off"
+            app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/txt_price_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/green_main"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView25"
+            app:layout_constraintStart_toEndOf="@+id/textView25"
+            app:layout_constraintTop_toTopOf="@+id/textView25"
+            tools:text="180,000" />
+
+        <TextView
+            android:id="@+id/txt_price_total_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/green_main"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_price_total"
+            app:layout_constraintStart_toEndOf="@+id/txt_price_total"
+            app:layout_constraintTop_toTopOf="@+id/txt_price_total"
+            tools:text="150,000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ir.abyx.pastry.ui.customView.CustomButton
+        android:id="@+id/btnContinueSell"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/view25"
+        app:layout_constraintStart_toStartOf="@+id/view25"
+        app:layout_constraintTop_toBottomOf="@+id/view25"
+        app:text="@string/continue_sell" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid android:color="@color/black_main" />
-    <corners android:radius="10dp" />
+    <item android:state_pressed="true"
+        android:drawable="@drawable/button_pressed_black" />
 
-</shape>
+    <item android:drawable="@drawable/button_normal_black" />
+
+</selector>

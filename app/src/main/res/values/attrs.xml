@@ -16,7 +16,11 @@
         <attr name="backIcon" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="CustomBottomNavigation">
-
+    <declare-styleable name="CustomRecyclerHorizontal">
+        <attr name="title" format="string" />
+        <attr name="all" format="boolean" />
+        <attr name="recycler_background" format="reference"/>
+        <attr name="recycler_padding_bottom" format="dimension" />
     </declare-styleable>
+
 </resources>

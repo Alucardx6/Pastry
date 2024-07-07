@@ -33,4 +33,6 @@ class CustomAppBar(
         typeArray.recycle()
     }
 
+    fun getBackIcon() = binding.icBack
+
 }

@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-        val presenter = PresenterLoginActivity(view, ModelLoginActivity())
+        val presenter = PresenterLoginActivity(view, ModelLoginActivity(this))
         presenter.onCreate()
     }
 }

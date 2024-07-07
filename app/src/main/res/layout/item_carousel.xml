@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:paddingBottom="8dp">
+
+    <FrameLayout
+        android:id="@+id/frame_layouts"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/img_pastry"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:contentDescription="@string/pastry"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/img_place_holder" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_pastry_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="6dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/frame_layouts"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layouts"
+        tools:text="شیرینی دامارکی" />
+
+    <TextView
+        android:id="@+id/txt_off_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_main_price"
+        app:layout_constraintEnd_toStartOf="@+id/txt_main_price"
+        app:layout_constraintTop_toTopOf="@+id/txt_main_price"
+        tools:text="310,000" />
+
+    <TextView
+        android:id="@+id/txt_main_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/txt_pastry_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pastry_name"
+        tools:text="250,000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/currency"
+        android:textColor="@color/color_text_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_off_price"
+        app:layout_constraintEnd_toStartOf="@+id/txt_off_price"
+        app:layout_constraintTop_toTopOf="@+id/txt_off_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

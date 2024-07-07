@@ -20,10 +20,11 @@
     <View
         android:id="@+id/view_group"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
+        android:background="@drawable/nav_item_select"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -33,7 +34,7 @@
     <View
         android:id="@+id/view_cake"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
@@ -58,9 +59,44 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <View
+        android:id="@+id/view_shopping_cart"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/alert_back"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txt_shop_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:textColor="@color/white_main"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view_shopping_cart"
+        app:layout_constraintEnd_toEndOf="@+id/view_shopping_cart"
+        app:layout_constraintStart_toStartOf="@+id/view_shopping_cart"
+        app:layout_constraintTop_toTopOf="@+id/view_shopping_cart"
+        tools:text="5" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="view_shopping_cart, txt_shop_number" />
+
+    <View
         android:id="@+id/view_pastry"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
@@ -73,7 +109,7 @@
     <View
         android:id="@+id/view_profile"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"

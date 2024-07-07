@@ -8,4 +8,6 @@ interface BaseLifecycle {
 
     fun onDestroy() {}
 
+    fun onStart() {}
+
 }

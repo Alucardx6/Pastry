@@ -38,6 +38,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
@@ -46,7 +47,24 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    //lottie animation
     implementation(libs.lottie)
+    //retrofit service
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //security
+    implementation (libs.androidx.security.crypto)
+
+    //Picasso
+    implementation (libs.picasso)
+
+    //Justify Text View
+    implementation (libs.justifiedtextview)
+
+    //simple rating bar
+    implementation (libs.simpleratingbar)
+
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

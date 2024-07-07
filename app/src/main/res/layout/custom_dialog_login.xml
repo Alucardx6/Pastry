@@ -65,7 +65,7 @@
             android:background="@drawable/back_edit_text"
             android:hint="@string/confirm_code"
             android:inputType="number"
-            android:maxLength="4"
+            android:maxLength="5"
             android:textAlignment="textEnd"
             android:textColorHint="@color/color_text_gray" />
 

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/back_item_recycler">
+
+    <FrameLayout
+        android:id="@+id/frame_layouts"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="0dp"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:id="@+id/img_product"
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:contentDescription="@string/image_desc"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_place_holder" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_pastry_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/frame_layouts"
+        app:layout_constraintTop_toTopOf="@+id/frame_layouts"
+        tools:text="کیک پروانه ای (1 کیلو)" />
+
+    <TextView
+        android:id="@+id/txt_price_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_text_black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/frame_layouts"
+        app:layout_constraintEnd_toEndOf="@+id/txt_pastry_name"
+        tools:text="180,000" />
+
+    <TextView
+        android:id="@+id/txt_price_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_price_main"
+        app:layout_constraintEnd_toStartOf="@+id/txt_price_main"
+        app:layout_constraintTop_toTopOf="@+id/txt_price_main"
+        tools:text="150,000" />
+
+    <TextView
+        android:id="@+id/txt_currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/currency"
+        android:textColor="@color/color_text_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_price_off"
+        app:layout_constraintEnd_toStartOf="@+id/txt_price_off"
+        app:layout_constraintTop_toTopOf="@+id/txt_price_off" />
+
+    <ImageView
+        android:id="@+id/img_shop"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/shopping_cart"
+        android:src="@drawable/ic_shopping_cart_black"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_currency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_currency" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:contentDescription="@string/img_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_off" />
+
+    <TextView
+        android:id="@+id/txt_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white_main"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        tools:text="50%" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/off_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="imageView17,txt_off, txt_price_off"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

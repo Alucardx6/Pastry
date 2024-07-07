@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:background="@drawable/back_item_recycler"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="10dp">
+
+    <FrameLayout
+        android:id="@+id/frame_layouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/img_pastry"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:contentDescription="@string/pastry"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/img_place_holder" />
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/txt_pastry_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/frame_layouts"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layouts"
+        tools:text="شیرینی دانمارکی" />
+
+    <TextView
+        android:id="@+id/txt_main_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/txt_pastry_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pastry_name"
+        tools:text="300,000" />
+
+    <TextView
+        android:id="@+id/txt_off_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/color_text_black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_main_price"
+        app:layout_constraintEnd_toStartOf="@+id/txt_main_price"
+        app:layout_constraintTop_toTopOf="@+id/txt_main_price"
+        tools:text="230,000" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/currency"
+        android:textColor="@color/color_text_black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_off_price"
+        app:layout_constraintEnd_toStartOf="@+id/txt_off_price"
+        app:layout_constraintTop_toTopOf="@+id/txt_off_price" />
+
+    <ImageView
+        android:id="@+id/img_off"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_off" />
+
+    <TextView
+        android:id="@+id/txt_off_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white_main"
+        app:layout_constraintBottom_toBottomOf="@+id/img_off"
+        app:layout_constraintEnd_toEndOf="@+id/img_off"
+        app:layout_constraintStart_toStartOf="@+id/img_off"
+        app:layout_constraintTop_toTopOf="@+id/img_off"
+        tools:text="55%" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/off_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="img_off,txt_off_percent,txt_off_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        android:textColor="@color/color_text_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView23"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:contentDescription="@string/more"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_other"
+        app:layout_constraintEnd_toStartOf="@+id/txt_other"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/frame_layouts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_other"
+        app:layout_constraintVertical_bias="0.75"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="imageView23,txt_other" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/all_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids=",textView8,txt_main_price,txt_pastry_name,frame_layouts" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
