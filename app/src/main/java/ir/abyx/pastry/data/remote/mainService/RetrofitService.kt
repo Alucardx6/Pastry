@@ -1,6 +1,9 @@
 package ir.abyx.pastry.data.remote.mainService
 
 import ir.abyx.pastry.data.remote.apiRepository.AddressApiService
+import ir.abyx.pastry.data.remote.apiRepository.CartApiService
+import ir.abyx.pastry.data.remote.apiRepository.CatsApiService
+import ir.abyx.pastry.data.remote.apiRepository.CustomCakeApiService
 import ir.abyx.pastry.data.remote.apiRepository.LoginApiService
 import ir.abyx.pastry.data.remote.apiRepository.MainContentApiService
 import ir.abyx.pastry.data.remote.apiRepository.PastryApiService
@@ -22,4 +25,8 @@ object RetrofitService {
     val pastryApiService: PastryApiService = retrofit.create(PastryApiService::class.java)
     val userInfoApiService: UserInfoApiService = retrofit.create(UserInfoApiService::class.java)
     val addressApiService: AddressApiService = retrofit.create(AddressApiService::class.java)
+    val customCakeApiService: CustomCakeApiService =
+        retrofit.create(CustomCakeApiService::class.java)
+    val catsApiService: CatsApiService = retrofit.create(CatsApiService::class.java)
+    val cartApiService: CartApiService = retrofit.create(CartApiService::class.java)
 }

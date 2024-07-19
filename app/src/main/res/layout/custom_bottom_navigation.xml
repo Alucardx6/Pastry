@@ -90,7 +90,7 @@
         android:id="@+id/group_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:constraint_referenced_ids="view_shopping_cart, txt_shop_number" />
 
     <View

@@ -30,6 +30,12 @@ class CustomRecyclerHorizontal(context: Context, attrs: AttributeSet) :
     private fun initialize(attrs: AttributeSet) {
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.CustomRecyclerHorizontal)
         val title = typeArray.getString(R.styleable.CustomRecyclerHorizontal_title)
+        val desc = typeArray.getString(R.styleable.CustomRecyclerHorizontal_desc)
+
+        if (desc.isNullOrEmpty())
+            binding.txtDesc.visibility = View.GONE
+        else
+            binding.txtDesc.text = desc
 
         val allGroup = typeArray.getBoolean(R.styleable.CustomRecyclerHorizontal_all, false)
         val recyclerWhiteBackResId =

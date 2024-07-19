@@ -7,7 +7,10 @@ import android.view.View
 import ir.abyx.pastry.data.remote.dataModel.UserData
 import ir.abyx.pastry.databinding.ProfileFragmentBinding
 import ir.abyx.pastry.ui.activity.AddressActivity
+import ir.abyx.pastry.ui.activity.CustomCakeActivity
+import ir.abyx.pastry.ui.activity.DiscountActivity
 import ir.abyx.pastry.ui.activity.FavoriteActivity
+import ir.abyx.pastry.ui.activity.NotificationActivity
 import ir.abyx.pastry.ui.activity.UserActivity
 
 class ViewProfileFragment(private val context: Context) {
@@ -20,20 +23,31 @@ class ViewProfileFragment(private val context: Context) {
     }
 
     fun onClick() {
-        binding.imgUserInfo.setOnClickListener {
-            context.startActivity(Intent(context, UserActivity::class.java))
-        }
 
-        binding.imgFavorite.setOnClickListener {
-            context.startActivity(Intent(context, FavoriteActivity::class.java))
-        }
+        binding.apply {
+            imgUserInfo.setOnClickListener {
+                context.startActivity(Intent(context, UserActivity::class.java))
+            }
 
-        binding.imgAddress.setOnClickListener {
-            context.startActivity(Intent(context, AddressActivity::class.java))
-        }
+            imgFavorite.setOnClickListener {
+                context.startActivity(Intent(context, FavoriteActivity::class.java))
+            }
 
-        binding.imgCake.setOnClickListener {
-//            context.startActivity(Intent(context, CustomCakeActivity::class.java))
+            imgAddress.setOnClickListener {
+                context.startActivity(Intent(context, AddressActivity::class.java))
+            }
+
+            imgMyOff.setOnClickListener {
+                context.startActivity(Intent(context, DiscountActivity::class.java))
+            }
+
+            imgCake.setOnClickListener {
+                context.startActivity(Intent(context, CustomCakeActivity::class.java))
+            }
+
+            imgAlert.setOnClickListener {
+                context.startActivity(Intent(context, NotificationActivity::class.java))
+            }
         }
     }
 

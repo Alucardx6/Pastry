@@ -22,4 +22,8 @@ interface ViewUtils {
 
     fun deleteAddress(addressId: Int) {}
 
+    fun setCart(pastryId: Int, amount: Int) {}
+
+    fun deleteItem(itemId: Int) {}
+
 }

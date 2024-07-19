@@ -1,7 +1,6 @@
 package ir.abyx.pastry.ui.activity
 
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,11 +15,15 @@ import ir.abyx.pastry.mvp.presenter.PresenterMainActivity
 import ir.abyx.pastry.mvp.view.ViewMainActivity
 
 class MainActivity : AppCompatActivity(), ActivityUtils {
+
+    private lateinit var view: ViewMainActivity
+    private lateinit var presenter: PresenterMainActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val view = ViewMainActivity(this, this)
+        view = ViewMainActivity(this, this)
         setContentView(view.binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(view.binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -28,8 +31,19 @@ class MainActivity : AppCompatActivity(), ActivityUtils {
             insets
         }
 
-        val presenter = PresenterMainActivity(view, ModelMainActivity())
+        presenter = PresenterMainActivity(this, view, ModelMainActivity())
         presenter.onCreate()
+
+//        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+
+//            }
+//        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onResume()
     }
 
     override fun setFragment(fragment: Fragment) {

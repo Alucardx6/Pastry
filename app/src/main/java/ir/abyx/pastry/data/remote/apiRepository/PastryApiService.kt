@@ -2,6 +2,7 @@ package ir.abyx.pastry.data.remote.apiRepository
 
 import ir.abyx.pastry.data.remote.dataModel.AllPastriesModel
 import ir.abyx.pastry.data.remote.dataModel.DefaultModel
+import ir.abyx.pastry.data.remote.dataModel.ListPastriesModel
 import ir.abyx.pastry.data.remote.dataModel.PastryMainModel
 import ir.abyx.pastry.data.remote.dataModel.RequestFavorite
 import retrofit2.Response
@@ -22,6 +23,26 @@ interface PastryApiService {
         @Header("app-public-key") pubKey: String,
         @Header("app-api-key") apiKey: String
     ): Response<PastryMainModel>
+
+    @GET("cat/{id}")
+    suspend fun getPastriesList(
+        @Path(value = "id", encoded = false) ID: Int,
+        @Query("has_pastries") hasPastries: Boolean
+    ): Response<ListPastriesModel>
+
+    @GET("pastries")
+    suspend fun getPastriesByType(
+        @Query("orderBy") type: String
+    ): Response<AllPastriesModel>
+
+    @GET("pastries")
+    suspend fun getFavoritePastriesList(
+        @Header("app-api-key") apiKey: String,
+        @Header("app-device-uid") id: String,
+        @Header("app-public-key") pubKey: String,
+        @Query("favorite") favorite: Boolean
+    ): Response<AllPastriesModel>
+
 
     @FormUrlEncoded
     @POST("pastry/{id}/operations/")

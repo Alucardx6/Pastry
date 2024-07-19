@@ -1,6 +1,8 @@
 package ir.abyx.pastry.mvp.model
 
+import android.util.Log
 import ir.abyx.pastry.data.remote.dataModel.DefaultModel
+import ir.abyx.pastry.data.remote.dataModel.MainCartModel
 import ir.abyx.pastry.data.remote.dataModel.PastryMainModel
 import ir.abyx.pastry.data.remote.dataModel.RequestFavorite
 import ir.abyx.pastry.data.remote.ext.CallbackRequest
@@ -12,6 +14,26 @@ import kotlinx.coroutines.launch
 class ModelDetailPastryActivity(private val id: Int) {
 
     private val service = RetrofitService.pastryApiService
+
+    fun addToCart(
+        apiKey: String,
+        uId: String,
+        pubKey: String,
+        pastryId: Int,
+        amount: Int,
+        callbackRequest: CallbackRequest<DefaultModel>
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = RetrofitService.cartApiService.addItem(
+                apiKey,
+                uId,
+                pubKey,
+                pastryId,
+                amount
+            )
+            callbackRequest.getResponse(response)
+        }
+    }
 
     fun getDetailPastry(
         uId: String,
@@ -56,8 +78,10 @@ class ModelDetailPastryActivity(private val id: Int) {
         callbackRequest: CallbackRequest<RequestFavorite>
     ) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.setPastryFavorite(postId,
-                apiKey, uId, pubKey, action)
+            val response = service.setPastryFavorite(
+                postId,
+                apiKey, uId, pubKey, action
+            )
             callbackRequest.getResponse(response)
         }
     }

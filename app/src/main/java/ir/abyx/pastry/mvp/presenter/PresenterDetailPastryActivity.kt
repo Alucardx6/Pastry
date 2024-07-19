@@ -1,6 +1,7 @@
 package ir.abyx.pastry.mvp.presenter
 
 import android.content.Context
+import android.util.Log
 import ir.abyx.pastry.androidWrapper.DeviceInfo
 import ir.abyx.pastry.data.remote.dataModel.DefaultModel
 import ir.abyx.pastry.data.remote.dataModel.PastryMainModel
@@ -94,6 +95,34 @@ class PresenterDetailPastryActivity(
                                                     }
                                                 }
                                             }
+                                        })
+                                }
+
+                                override fun setCart(pastryId: Int, amount: Int) {
+                                    model.addToCart(DeviceInfo.getApi(context),
+                                        DeviceInfo.getDeviceID(context),
+                                        DeviceInfo.getPublicKey(context),
+                                        pastryId,
+                                        amount,
+                                        object : CallbackRequest<DefaultModel> {
+                                            override fun getResponse(response: Response<DefaultModel>) {
+                                                if (response.isSuccessful)
+                                                    CoroutineScope(Dispatchers.Main).launch {
+                                                        val result =
+                                                            response.body() as DefaultModel
+                                                        ToastUtils.toast(context, result.message)
+                                                        view.closeDialog()
+                                                    }
+                                                else
+                                                    CoroutineScope(Dispatchers.Main).launch {
+                                                        ToastUtils.toast(
+                                                            context,
+                                                            ErrorUtils.getError(response)
+                                                        )
+                                                        view.closeDialog()
+                                                    }
+                                            }
+
                                         })
                                 }
                             })

@@ -26,6 +26,7 @@ class ViewDetailPastryActivity(
     private val context: Context,
     private val activityUtils: ActivityUtils
 ) {
+    private lateinit var dialog: Dialog
 
     val binding = ActivityDetailPastryBinding.inflate(LayoutInflater.from(context))
 
@@ -51,68 +52,64 @@ class ViewDetailPastryActivity(
                 getRecycler().adapter = CarouselAdapter(data.related)
             }
             //endregion
-        }
 
-        if (data.comment_count > 0) {
-            binding.apply {
+            if (data.comment_count > 0) {
                 commentCountGroup.visibility = View.VISIBLE
                 txtCommentCount.text = data.comment_count.toString()
-            }
-        } else
-            binding.commentCountGroup.visibility = View.INVISIBLE
 
-        var bookmark = data.bookmark
+            } else
+                commentCountGroup.visibility = View.INVISIBLE
 
-        var action: String
+            var bookmark = data.bookmark
 
-        if (bookmark)
-            binding.imgFavorite.setImageResource(R.drawable.ic_actived_favorite)
-        else
-            binding.imgFavorite.setImageResource(R.drawable.ic_favorite)
+            var action: String
 
-        binding.imgFavorite.setOnClickListener {
-            if (bookmark) {
-                action = "unfavorite"
-                binding.imgFavorite.setImageResource(R.drawable.ic_favorite)
-                bookmark = false
-            } else {
-                action = "favorite"
-                binding.imgFavorite.setImageResource(R.drawable.ic_actived_favorite)
-                bookmark = true
-            }
+            if (bookmark)
+                imgFavorite.setImageResource(R.drawable.ic_actived_favorite)
+            else
+                imgFavorite.setImageResource(R.drawable.ic_favorite)
 
-            viewUtils.favorite(action, data.ID)
-        }
+            imgFavorite.setOnClickListener {
+                if (bookmark) {
+                    action = "unfavorite"
+                    imgFavorite.setImageResource(R.drawable.ic_favorite)
+                    bookmark = false
+                } else {
+                    action = "favorite"
+                    imgFavorite.setImageResource(R.drawable.ic_actived_favorite)
+                    bookmark = true
+                }
 
-        binding.btnSendComment.getView().setOnClickListener {
-            val text = binding.edtComment.text.toString()
-            val rate = binding.ratingComment.rating
-
-            if (text.isEmpty() || (text.length < 10)) {
-                ToastUtils.toast(context, "نظر شما نمیتواند کمتر از ۱۰ کارکتر باشد")
-                return@setOnClickListener
+                viewUtils.favorite(action, data.ID)
             }
 
-            binding.btnSendComment.enableProgress()
+            btnSendComment.getView().setOnClickListener {
+                val text = edtComment.text.toString()
+                val rate = ratingComment.rating
 
-            viewUtils.sendComment(text, rate, data.ID)
-        }
+                if (text.isEmpty() || (text.length < 10)) {
+                    ToastUtils.toast(context, "نظر شما نمیتواند کمتر از ۱۰ کارکتر باشد")
+                    return@setOnClickListener
+                }
 
-        binding.txtDesc.text = data.content
+                btnSendComment.enableProgress()
 
-        if (data.comments != null) {
-            binding.recyclerComments.apply {
-                getRecycler().layoutManager =
-                    LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-                CommentsRecyclerAdapter(data.comments).also { getRecycler().adapter = it }
+                viewUtils.sendComment(text, rate, data.ID)
             }
-        }
 
-        binding.txtMainPrice.text = OthersUtilities.splitPrice(data.price)
+            txtJustifiedDesc.text = data.content
 
-        if (data.has_discount) {
+            if (data.comments != null) {
+                recyclerComments.apply {
+                    getRecycler().layoutManager =
+                        LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                    CommentsRecyclerAdapter(data.comments).also { getRecycler().adapter = it }
+                }
+            }
 
-            binding.apply {
+            txtMainPrice.text = OthersUtilities.splitPrice(data.price)
+
+            if (data.has_discount) {
                 txtMainPrice.paintFlags =
                     txtMainPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                 txtMainPrice.setTextColor(Color.GRAY)
@@ -120,113 +117,114 @@ class ViewDetailPastryActivity(
                 offGroup.visibility = View.VISIBLE
                 txtOffPrice.text = OthersUtilities.splitPrice(data.sale_price)
                 txtOffPercent.text = data.discount_percent_110n
-            }
 
-        } else
-            binding.offGroup.visibility = View.GONE
+            } else
+                offGroup.visibility = View.GONE
 
-        binding.btnShop.getView().setOnClickListener {
-            binding.btnShop.enableProgress()
+            btnShop.getView().setOnClickListener {
+                btnShop.enableProgress()
 
-            val view = CustomDialogSellBinding.inflate(LayoutInflater.from(context))
-            val dialog = Dialog(context)
+                val view = CustomDialogSellBinding.inflate(LayoutInflater.from(context))
+                dialog = Dialog(context)
 
-            view.txtPriceBased.text = OthersUtilities.splitPrice(data.price)
+                view.txtPriceBased.text = OthersUtilities.splitPrice(data.price)
 
-            shopDialog(view, data)
+                shopDialog(view, data)
 
-            if (data.has_discount) {
-
-                view.apply {
-                    offGroup.visibility = View.VISIBLE
-                    txtPriceOff.text = OthersUtilities.splitPrice(data.sale_price)
-                    txtOff18n.text = "(${data.discount_percent_110n})"
-                    txtPriceTotal.paintFlags =
-                        txtPriceTotal.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                    txtPriceTotal.setTextColor(Color.GRAY)
-                }
-
-            } else {
-
-                view.apply {
-                    offGroup.visibility = View.GONE
-                    txtPriceTotalOff.visibility = View.GONE
-                }
-            }
-
-            dialog.apply {
-                setContentView(view.root)
-                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                show()
-            }
-
-            view.btnContinueSell.getView().setOnClickListener {
-
-            }
-
-            view.apply {
-                rbSellNormal.setOnClickListener {
+                if (data.has_discount) {
 
                     view.apply {
-                        txtCount.text = "1"
-                        rbSellNormal.isChecked = true
-                        rbSellMajor.isChecked = false
-                        viewNormal.setBackgroundResource(R.drawable.back_radio_sell_white)
-                        viewMajor.setBackgroundResource(R.drawable.back_radio_sell_transparent)
+                        offGroup.visibility = View.VISIBLE
+                        txtPriceOff.text = OthersUtilities.splitPrice(data.sale_price)
+                        txtOff18n.text = "(${data.discount_percent_110n})"
+                        txtPriceTotal.paintFlags =
+                            txtPriceTotal.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                        txtPriceTotal.setTextColor(Color.GRAY)
                     }
-                    shopDialog(view, data)
+
+                } else {
+
+                    view.apply {
+                        offGroup.visibility = View.GONE
+                        txtPriceTotalOff.visibility = View.GONE
+                    }
                 }
 
-                rbSellMajor.setOnClickListener {
-                    view.txtCount.text = "10"
-                    shopDialog(view, data)
-
-                    view.rbSellNormal.isChecked = false
-                    view.rbSellMajor.isChecked = true
-
-                    view.viewNormal.setBackgroundResource(R.drawable.back_radio_sell_transparent)
-                    view.viewMajor.setBackgroundResource(R.drawable.back_radio_sell_white)
+                dialog.apply {
+                    setContentView(view.root)
+                    window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                    show()
                 }
 
-                viewPlus.setOnClickListener {
-
-                    var count = view.txtCount.text.toString().toInt()
-
-                    if (view.rbSellNormal.isChecked)
-                        if (count < 10)
-                            count++
-
-                    if (view.rbSellMajor.isChecked)
-                        if (count < 100)
-                            count += 5
-
-                    view.txtCount.text = count.toString()
-                    shopDialog(view, data)
-
+                view.btnContinueSell.getView().setOnClickListener {
+                    viewUtils.setCart(data.ID, view.txtCount.text.toString().toInt())
+                    view.btnContinueSell.enableProgress()
                 }
 
-                viewMin.setOnClickListener {
+                view.apply {
+                    rbSellNormal.setOnClickListener {
 
-                    var count = view.txtCount.text.toString().toInt()
+                        view.apply {
+                            txtCount.text = "1"
+                            rbSellNormal.isChecked = true
+                            rbSellMajor.isChecked = false
+                            viewNormal.setBackgroundResource(R.drawable.back_radio_sell_white)
+                            viewMajor.setBackgroundResource(R.drawable.back_radio_sell_transparent)
+                        }
+                        shopDialog(view, data)
+                    }
 
-                    if (view.rbSellNormal.isChecked)
-                        if (count > 1)
-                            count--
+                    rbSellMajor.setOnClickListener {
+                        view.txtCount.text = "10"
+                        shopDialog(view, data)
 
-                    if (view.rbSellMajor.isChecked)
-                        if (count > 10)
-                            count -= 5
+                        view.rbSellNormal.isChecked = false
+                        view.rbSellMajor.isChecked = true
 
-                    view.txtCount.text = count.toString()
-                    shopDialog(view, data)
+                        view.viewNormal.setBackgroundResource(R.drawable.back_radio_sell_transparent)
+                        view.viewMajor.setBackgroundResource(R.drawable.back_radio_sell_white)
+                    }
 
+                    viewPlus.setOnClickListener {
+
+                        var count = view.txtCount.text.toString().toInt()
+
+                        if (view.rbSellNormal.isChecked)
+                            if (count < 10)
+                                count++
+
+                        if (view.rbSellMajor.isChecked)
+                            if (count < 100)
+                                count += 5
+
+                        view.txtCount.text = count.toString()
+                        shopDialog(view, data)
+
+                    }
+
+                    viewMin.setOnClickListener {
+
+                        var count = view.txtCount.text.toString().toInt()
+
+                        if (view.rbSellNormal.isChecked)
+                            if (count > 1)
+                                count--
+
+                        if (view.rbSellMajor.isChecked)
+                            if (count > 10)
+                                count -= 5
+
+                        view.txtCount.text = count.toString()
+                        shopDialog(view, data)
+
+                    }
                 }
+
+                dialog.setOnCancelListener {
+                    btnShop.disableProgress()
+                }
+
             }
-
-            dialog.setOnCancelListener {
-                binding.btnShop.disableProgress()
-            }
-
         }
 
 //        binding.rbNormal.setOnClickListener {
@@ -291,5 +289,10 @@ class ViewDetailPastryActivity(
 
     fun endBtnCommentProgress() {
         binding.btnSendComment.disableProgress()
+    }
+
+    fun closeDialog() {
+        dialog.dismiss()
+        binding.btnShop.disableProgress()
     }
 }

@@ -4,6 +4,8 @@ interface BaseLifecycle {
 
     fun onCreate()
 
+    fun onResume() {}
+
     fun onStop() {}
 
     fun onDestroy() {}

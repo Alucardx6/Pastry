@@ -6,4 +6,13 @@
     </style>
 
     <style name="Theme.Pastry" parent="Base.Theme.Pastry" />
+
+    <style name="Theme.Pastry.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Pastry.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Pastry.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

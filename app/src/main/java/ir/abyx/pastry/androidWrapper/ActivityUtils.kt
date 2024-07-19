@@ -10,7 +10,8 @@ interface ActivityUtils {
     fun viewPagerFragment(
         viewPager: ViewPager2,
         data: ArrayList<String>
-    ) {}
+    ) {
+    }
 
     fun finished() {}
 

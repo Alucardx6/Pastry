@@ -6,9 +6,13 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Filter
+import android.widget.Filterable
+import androidx.recyclerview.widget.DiffUtil
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import ir.abyx.pastry.adapter.recycler.diffUtil.RecyclerDiffUtil
 import ir.abyx.pastry.androidWrapper.PicassoHandler
 import ir.abyx.pastry.data.remote.dataModel.PastryModel
 import ir.abyx.pastry.databinding.RecyclerItemListProductsBinding
@@ -19,7 +23,10 @@ class ProductListRecyclerAdapter(
     private val context: Context,
     private val items: ArrayList<PastryModel>
 ) :
-    RecyclerView.Adapter<ProductListRecyclerAdapter.CustomViewHolder>() {
+    RecyclerView.Adapter<ProductListRecyclerAdapter.CustomViewHolder>(), Filterable {
+
+    private val dataFull = ArrayList<PastryModel>()
+    private val dataMain = ArrayList<PastryModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder =
         CustomViewHolder(
@@ -66,5 +73,47 @@ class ProductListRecyclerAdapter(
                 context.startActivity(intent)
             }
         }
+    }
+
+    override fun getFilter(): Filter =
+        object : Filter() {
+
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+
+                val data = ArrayList<PastryModel>()
+
+                if (constraint.isNullOrEmpty())
+                    data.addAll(dataFull)
+                else {
+                    val filter = constraint.toString().trim()
+                    for (item in dataFull) {
+                        if (item.title.contains(filter))
+                            data.add(item)
+                    }
+                }
+
+                items.clear()
+                items.addAll(data)
+
+                return FilterResults()
+
+            }
+
+            override fun publishResults(p0: CharSequence?, result: FilterResults?) {
+                dataUpdate(items)
+            }
+
+        }
+
+    private fun dataUpdate(newList: ArrayList<PastryModel>) {
+
+        val diffCallback = RecyclerDiffUtil(dataMain, newList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
+        dataMain.clear()
+        dataMain.addAll(newList)
+
+        diffResult.dispatchUpdatesTo(this)
+
     }
 }

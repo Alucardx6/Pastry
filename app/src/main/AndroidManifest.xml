@@ -16,6 +16,32 @@
         android:theme="@style/Theme.Pastry"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.NavDrawerActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_nav_drawer2"
+            android:theme="@style/Theme.Pastry.NoActionBar" />
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.NavDrawerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.ListPastryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.NotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.RequestCustomCakeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.CustomCakeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.DiscountActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.EditAddressActivity"
             android:exported="false" />
         <activity
